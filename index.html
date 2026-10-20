@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Entrix — Approve every Windows sign-in on your iPhone</title>
+  <meta name="description" content="Entrix adds a second step to Windows sign-in. When someone signs in to your PC, your iPhone asks, and you approve with Face ID. Free for your first PC.">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light">
+  <link rel="canonical" href="https://entrix.uk/">
+  <link rel="icon" type="image/png" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/app-icon-180.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://entrix.uk/">
+  <meta property="og:title" content="Entrix — Approve every Windows sign-in on your iPhone">
+  <meta property="og:description" content="A second step for your PC’s sign-in. Your iPhone asks; you approve with Face ID. Free for your first PC.">
+  <meta property="og:image" content="https://entrix.uk/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2.75" y="3.75" width="18.5" height="12.5" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 20.25h7M12 16.5v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5" fill="currentColor"/><path d="M8.25 10.5V8a3.75 3.75 0 0 1 7.5 0v2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-restart" viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M17.5 3.75v3.5H14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3.5v7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M7.4 6.9a7 7 0 1 0 9.2 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.75 4.5 5.6v5.9c0 4.7 3.1 8.5 7.5 9.75 4.4-1.25 7.5-5.05 7.5-9.75V5.6L12 2.75Z" fill="currentColor"/><path d="M12 7.5v5.5M12 16.2v.1" stroke="#fff" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4.25 4.25L18.5 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+      <symbol id="i-faceid" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V10a6 6 0 0 1 6-6h5M33 4h5a6 6 0 0 1 6 6v5M44 33v5a6 6 0 0 1-6 6h-5M15 44h-5a6 6 0 0 1-6-6v-5"/><path d="M16 17v4M32 17v4"/><path d="M24 17v10h-2.5"/><path d="M16.5 33c2 2 4.6 3 7.5 3s5.5-1 7.5-3"/></g></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="12" r="4.25" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12.25 12H21m-3 0v3m-3-3v2.25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 12s3.3-6 9-6 9 6 9 6-3.3 6-9 6-9-6-9-6Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></symbol>
+      <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.25" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="3.1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M6.4 18.6c1.3-1.9 3.3-2.95 5.6-2.95s4.3 1.05 5.6 2.95" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-cloud-off" viewBox="0 0 24 24"><path d="M7 18h10.5a3.5 3.5 0 0 0 .4-6.98A5.5 5.5 0 0 0 7.3 9.6 4.25 4.25 0 0 0 7 18Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4 4 16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="7.5" width="11" height="13" rx="2.2" fill="currentColor"/><path d="M15.5 4.5H7a2.5 2.5 0 0 0-2.5 2.5v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 9.75h18M6.5 14.75h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+      <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.3 10.4 4.3v7.1H3V5.3Zm8.5-1.15L21 2.9v8.5h-9.5V4.15ZM3 12.6h7.4v7.1L3 18.7v-6.1Zm8.5 0H21v8.5l-9.5-1.25V12.6Z" fill="currentColor"/></symbol>
+      <symbol id="i-iphone" viewBox="0 0 24 24"><rect x="6.25" y="2.75" width="11.5" height="18.5" rx="2.75" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 5.25h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="nav" id="top">
+    <nav class="nav__inner" aria-label="Main">
+      <a class="nav__brand wordmark" href="#top" aria-label="Entrix home" translate="no">
+        <img src="assets/wordmark-e.webp" alt="" width="53" height="66"><span aria-hidden="true">ntrix</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#premium">Premium</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="nav__cta" href="#download">Notify me</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero: the promise, then the product doing it -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <h1 class="hero__title" id="hero-title">Only you can open your&nbsp;PC.</h1>
+      <p class="hero__lede">Even if someone knows your password. Entrix asks your iPhone before Windows lets anyone in. One glance with Face&nbsp;ID and you’re in; anyone else stays locked out.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#download" data-hero-cta>Notify me at launch</a>
+        <button class="link-more" type="button" data-replay-hero>Watch it work</button>
+      </div>
+      <ul class="chips" aria-label="At a glance">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Free for one PC</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Set up in minutes</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>End-to-end encrypted</li>
+      </ul>
+    </section>
+
+    <section class="scene" aria-label="A sign-in approved on iPhone">
+      <div class="scene__stage" data-scene>
+        <div class="laptop" aria-hidden="true">
+          <div class="laptop__screen">
+            <canvas class="win-canvas" data-wincanvas width="1600" height="1000"></canvas>
+          </div>
+          <div class="laptop__base"></div>
+        </div>
+
+        <div class="iphone" aria-hidden="true">
+          <div class="iphone__screen">
+            <div class="iphone__island"></div>
+            <div class="iphone__status"><span>9:41</span><span class="ios-status"><svg viewBox="0 0 17 11" width="17" height="11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.6" width="3" height="8.4" rx="1" opacity=".35"/><rect x="13.8" y="0" width="3" height="11" rx="1" opacity=".35"/></svg><svg viewBox="0 0 16 11" width="15" height="11"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2zm0 3.6c1.4 0 2.7.5 3.7 1.5L13 6a7 7 0 0 0-5-2 7 7 0 0 0-5 2l1.3 1.3c1-1 2.3-1.5 3.7-1.5zM8 9.4l1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="ios-batt">90</span></span></div>
+            <div class="iphone__home home">
+              <div class="home__head">
+                <div><div class="home__title">Entrix</div><div class="home__sub">Recovery Vault</div></div>
+                <span class="home__gear"><svg viewBox="0 0 24 24"><path d="M12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8Zm8.2 4.6-1.7 1 .1 2-2 1.2-1.7-1-1.8 1.1-.3 2h-2.4l-.3-2-1.8-1.1-1.7 1-2-1.2.1-2-1.7-1v-2.4l1.7-1-.1-2 2-1.2 1.7 1 1.8-1.1.3-2h2.4l.3 2 1.8 1.1 1.7-1 2 1.2-.1 2 1.7 1v2.4Z" fill="currentColor"/></svg></span>
+              </div>
+              <div class="home__card">
+                <div class="home__label"><svg><use href="#i-card"/></svg>2-STEP CODE<span class="home__secs" data-phone-secs>13s</span></div>
+                <div class="home__digits" data-phone-totp>055 359</div>
+                <div class="home__hint"><span data-phone-left>13s</span> remaining - tap code to copy</div>
+                <div class="home__bar"><i data-phone-bar></i></div>
+              </div>
+              <div class="home__card">
+                <div class="home__label"><svg><use href="#i-key"/></svg>RECOVERY CODE</div>
+                <div class="home__recovery">recovery:ENTRIX-xxxxx-xxxxx-xxxxx-xxxxx</div>
+                <div class="home__row"><span class="home__btn home__btn--coral"><svg><use href="#i-eye-off"/></svg>Reveal</span><span class="home__btn"><svg><use href="#i-copy"/></svg>Copy</span></div>
+              </div>
+              <div class="home__card">
+                <div class="home__label"><svg><use href="#i-monitor"/></svg>REMOTE CONTROL</div>
+                <span class="home__btn home__btn--coral home__btn--wide home__lockbtn"><svg class="home__locked"><use href="#i-shield"/></svg><svg class="home__unlocked"><use href="#i-lock"/></svg><b class="home__locked">Locked</b><b class="home__unlocked">Lock</b></span>
+                <div class="home__row"><span class="home__btn"><svg><use href="#i-restart"/></svg>Restart</span><span class="home__btn home__btn--warn"><svg><use href="#i-power"/></svg>Shut Down</span></div>
+              </div>
+            </div>
+            <div class="iphone__scrim"></div>
+            <div class="sheet" data-sheet>
+              <div class="sheet__grabber"></div>
+              <div class="sheet__icon"><svg><use href="#i-monitor"/></svg><span class="sheet__badge"><svg><use href="#i-check"/></svg></span></div>
+              <div class="sheet__kicker">Login request</div>
+              <div class="sheet__pc">Home PC</div>
+              <div class="sheet__sub">wants to sign in</div>
+              <div class="sheet__rows">
+                <div class="sheet__row"><svg><use href="#i-clock"/></svg><span>Requested</span><b>Just now</b></div>
+                <div class="sheet__row"><svg><use href="#i-clock"/></svg><span>Expires in</span><b data-expires>1:28</b></div>
+                <div class="sheet__bar"><i data-expires-bar></i></div>
+              </div>
+              <div class="sheet__note"><svg><use href="#i-lock"/></svg>Only approve if this sign-in is you</div>
+              <div class="sheet__approve" data-approve><svg><use href="#i-faceid"/></svg>Approve with Face ID</div>
+              <div class="sheet__deny">Deny</div>
+            </div>
+            <div class="faceid" data-faceid>
+              <svg class="faceid__glyph"><use href="#i-faceid"/></svg>
+              <svg class="faceid__check"><use href="#i-check"/></svg>
+              <span data-faceid-label>Face ID</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="scene__caption">Someone signs in to Home&nbsp;PC. Your iPhone asks. One glance, and the PC opens.<span class="scene__note">Illustration of the Entrix apps.</span> <button class="replay" type="button" data-pause aria-pressed="false">Pause</button></p>
+    </section>
+
+
+
+    <!-- Why: the fear, in the reader's own situations -->
+    <section class="section worry" aria-labelledby="worry-title">
+      <div class="wrap">
+        <h2 class="section__title" id="worry-title">Passwords get around.</h2>
+        <p class="section__lede">It only takes one of these for someone else to sign in to your computer.</p>
+        <div class="worry__grid">
+          <div class="worry__card"><svg aria-hidden="true"><use href="#i-eye-off"/></svg><h3>Someone watched you type it.</h3><p>At the office, on the train, in a café.</p></div>
+          <div class="worry__card"><svg aria-hidden="true"><use href="#i-cloud-off"/></svg><h3>It leaked from another site.</h3><p>The same password, reused somewhere that got breached.</p></div>
+          <div class="worry__card"><svg aria-hidden="true"><use href="#i-person"/></svg><h3>Someone close knows it.</h3><p>A housemate, a colleague, an ex.</p></div>
+        </div>
+        <p class="worry__answer"><img src="assets/entrix-mark-480.webp" alt="" width="28" height="34">With Entrix, a password alone opens nothing. Your iPhone has the final&nbsp;say.</p>
+      </div>
+    </section>
+
+    <!-- How it works: the iPhone stays put while the steps scroll past -->
+    <section class="section how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="section__title" id="how-title">Three steps.<br>Then forget about it.</h2>
+        <div class="how__grid">
+          <ol class="how__steps">
+            <li class="how__step" data-step="0">
+              <span class="step__num">1</span>
+              <h3><b>Install Entrix on your PC.</b> It adds its own tile to the Windows sign-in screen and shows a QR code.</h3>
+            </li>
+            <li class="how__step" data-step="1">
+              <span class="step__num">2</span>
+              <h3><b>Scan it with your iPhone.</b> Sign in with Apple, scan the code and give the computer a name.</h3>
+            </li>
+            <li class="how__step" data-step="2">
+              <span class="step__num">3</span>
+              <h3><b>Approve every sign-in.</b> When someone signs in, your iPhone asks. Tap Deny and the PC stays locked.</h3>
+            </li>
+          </ol>
+          <div class="how__device" aria-hidden="true">
+            <div class="iphone iphone--pinned">
+              <div class="iphone__screen">
+                <div class="iphone__island"></div>
+                <div class="iphone__status"><span>9:41</span><span class="ios-status"><svg viewBox="0 0 17 11" width="17" height="11"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.6" width="3" height="8.4" rx="1" opacity=".35"/><rect x="13.8" y="0" width="3" height="11" rx="1" opacity=".35"/></svg><svg viewBox="0 0 16 11" width="15" height="11"><path d="M8 2.2c2.4 0 4.6.9 6.2 2.5l1.3-1.3A10.5 10.5 0 0 0 8 .3 10.5 10.5 0 0 0 .5 3.4l1.3 1.3A8.7 8.7 0 0 1 8 2.2zm0 3.6c1.4 0 2.7.5 3.7 1.5L13 6a7 7 0 0 0-5-2 7 7 0 0 0-5 2l1.3 1.3c1-1 2.3-1.5 3.7-1.5zM8 9.4l1.9-1.9a2.7 2.7 0 0 0-3.8 0z"/></svg><span class="ios-batt">90</span></span></div>
+                <div class="screen screen--scan" data-screen="0">
+                  <div class="app-title">Add a Computer</div>
+                  <p class="screen__text">Scan the Entrix QR code shown on your PC.</p>
+                  <div class="qr"><canvas width="21" height="21" data-qr></canvas><i></i><i></i><i></i><i></i><span class="qr__line"></span></div>
+                  <div class="screen__btn">Scan Entrix QR</div>
+                </div>
+                <div class="screen screen--name" data-screen="1">
+                  <div class="app-title">Add a Computer</div>
+                  <div class="name-sheet">
+                    <div class="sheet__icon"><svg><use href="#i-monitor"/></svg></div>
+                    <div class="name-sheet__title">Name this computer</div>
+                    <div class="name-sheet__field">Home PC<span class="caret"></span></div>
+                    <div class="screen__btn">Save</div>
+                  </div>
+                </div>
+                <div class="screen screen--approve" data-screen="2">
+                  <div class="sheet sheet--static">
+                    <div class="sheet__grabber"></div>
+                    <div class="sheet__icon"><svg><use href="#i-monitor"/></svg><span class="sheet__badge"><svg><use href="#i-check"/></svg></span></div>
+                    <div class="sheet__kicker">Login request</div>
+                    <div class="sheet__pc">Home PC</div>
+                    <div class="sheet__sub">wants to sign in</div>
+                    <div class="sheet__rows">
+                      <div class="sheet__row"><svg><use href="#i-clock"/></svg><span>Requested</span><b>Just now</b></div>
+                      <div class="sheet__row"><svg><use href="#i-clock"/></svg><span>Expires in</span><b>1:28</b></div>
+                      <div class="sheet__bar"><i></i></div>
+                    </div>
+                    <div class="sheet__note"><svg><use href="#i-lock"/></svg>Only approve if this sign-in is you</div>
+                    <div class="sheet__approve"><svg><use href="#i-faceid"/></svg>Approve with Face ID</div>
+                    <div class="sheet__deny">Deny</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Highlights gallery -->
+    <section class="section highlights" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 class="highlights__title" id="features-title">Get the highlights.</h2>
+      </div>
+      <div class="gallery" data-gallery tabindex="0" aria-label="Highlights, scroll sideways">
+        <article class="hl hl--faceid">
+          <h3><b>Face ID approval.</b> One glance and you’re in. Anyone else stays out.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="hl-face"><svg><use href="#i-faceid"/></svg></div>
+            <div class="hl-face__ok"><svg><use href="#i-check"/></svg>Approved</div>
+          </div>
+        </article>
+        <article class="hl hl--code">
+          <h3><b>A code for no signal.</b> Type the 6-digit code from your iPhone, even offline.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="code-card">
+              <div class="code-card__head"><span class="mono-label">2-step code</span><span class="code-card__secs" data-totp-secs>26s</span></div>
+              <div class="code-card__digits" data-totp>800 256</div>
+              <div class="code-card__bar"><i data-totp-bar></i></div>
+            </div>
+          </div>
+        </article>
+        <article class="hl hl--alerts">
+          <h3><b>Security alerts.</b> A wrong password on your PC reaches your iPhone right away.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="alert-stack">
+              <div class="alert-card"><span class="alert-card__icon"><svg><use href="#i-shield"/></svg></span><div><b>Someone got your password wrong</b><span>Home PC · just now</span></div></div>
+              <div class="alert-card alert-card--back"><span class="alert-card__icon"><svg><use href="#i-lock"/></svg></span><div><b>PIN locked after too many tries</b><span>Home PC · 2 min ago</span></div></div>
+            </div>
+          </div>
+        </article>
+        <article class="hl hl--recovery">
+          <h3><b>Recovery code.</b> A way back in without your phone, encrypted end to end.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="recovery-card">
+              <span class="mono-label">Recovery code</span>
+              <code>ENTRIX-•••••-•••••-•••••-•••••</code>
+              <div class="recovery-card__actions"><span class="pill pill--coral"><svg><use href="#i-eye-off"/></svg>Reveal</span><span class="pill">Copy</span></div>
+            </div>
+          </div>
+        </article>
+        <article class="hl hl--remote">
+          <span class="tag">Premium</span>
+          <h3><b>Remote lock.</b> Left the PC unlocked? Lock, restart or shut it down from anywhere.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="remote">
+              <span class="remote__lock"><svg><use href="#i-lock"/></svg>Lock</span>
+              <span class="remote__btn"><svg><use href="#i-restart"/></svg>Restart</span>
+              <span class="remote__btn remote__btn--warn"><svg><use href="#i-power"/></svg>Shut Down</span>
+            </div>
+          </div>
+        </article>
+        <article class="hl hl--fleet">
+          <span class="tag">Premium</span>
+          <h3><b>Every PC, one iPhone.</b> Home, office, studio, each on its own card.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <ul class="fleet">
+              <li><svg><use href="#i-monitor"/></svg><b>Home PC</b><span class="live">Live</span></li>
+              <li><svg><use href="#i-monitor"/></svg><b>Office PC</b><span class="live">Live</span></li>
+              <li><svg><use href="#i-monitor"/></svg><b>Studio PC</b><span class="live">Live</span></li>
+            </ul>
+          </div>
+        </article>
+        <article class="hl hl--push">
+          <span class="tag">Premium</span>
+          <h3><b>Lock Screen approvals.</b> The request comes to you. No need to open the app.</h3>
+          <div class="hl__visual" aria-hidden="true">
+            <div class="banner">
+              <img src="assets/app-icon-96.webp" alt="" width="38" height="38" decoding="async">
+              <div><b>Home PC wants to sign in</b><time>now</time><span>Approve or deny this sign-in.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="gallery__controls">
+        <div class="gallery__dots" role="tablist" aria-label="Choose a highlight" data-gallery-dots></div>
+        <div class="gallery__arrows">
+          <button type="button" class="gallery__arrow" data-gallery-prev aria-label="Previous highlight"><svg viewBox="0 0 24 24"><path d="M14.5 6 8.5 12l6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="gallery__arrow" data-gallery-next aria-label="Next highlight"><svg viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="section security" id="security" aria-labelledby="security-title">
+      <div class="wrap">
+        <h2 class="section__title" id="security-title">Designed so even Entrix<br>can’t open your PC.</h2>
+        <p class="section__lede">Every approval is signed by your iPhone, and the server never holds what it would need to sign in as you.</p>
+        <div class="ledger">
+          <div class="ledger__col">
+            <h3>What Entrix knows</h3>
+            <ul>
+              <li>That a sign-in was requested, on which of your PCs, and your answer.</li>
+              <li>The names you give your computers.</li>
+              <li>Security alerts your PCs send, like a wrong password.</li>
+              <li>Your Sign in with Apple account, and whether you have Premium.</li>
+            </ul>
+          </div>
+          <div class="ledger__col ledger__col--never">
+            <h3>What Entrix never gets</h3>
+            <ul>
+              <li>Your Windows password.</li>
+              <li>Your Entrix PIN.</li>
+              <li>Your recovery code or 2-step secret in readable form.</li>
+              <li>The key your iPhone signs approvals with.</li>
+              <li>Your face. Face ID never leaves your iPhone.</li>
+              <li>Your card. Apple handles every payment.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <svg><use href="#i-iphone"/></svg>
+            <h3>Signed by your iPhone.</h3>
+            <p>Each approval and each remote lock carries a signature only your iPhone can make. Not even the Entrix server can fake one.</p>
+          </div>
+          <div class="fact">
+            <svg><use href="#i-lock"/></svg>
+            <h3>End-to-end encrypted.</h3>
+            <p>Your 2-step secret and recovery code travel between PC and iPhone encrypted with a key the server doesn’t have.</p>
+          </div>
+          <div class="fact">
+            <svg><use href="#i-faceid"/></svg>
+            <h3>Face ID or Touch ID, every time.</h3>
+            <p>An approval needs your face or fingerprint. A passcode alone isn’t enough.</p>
+          </div>
+          <div class="fact">
+            <svg><use href="#i-cloud-off"/></svg>
+            <h3>Works when the internet doesn’t.</h3>
+            <p>If the PC can’t reach Entrix, your 6-digit code and recovery code still let you in.</p>
+          </div>
+          <div class="fact">
+            <svg><use href="#i-shield"/></svg>
+            <h3>Deny means locked.</h3>
+            <p>Tap Deny and the PC stays locked. A request you ignore expires on its own.</p>
+          </div>
+          <div class="fact">
+            <svg><use href="#i-key"/></svg>
+            <h3>Entrix tile only.</h3>
+            <p>Hide Windows’ other sign-in options, so every way into your account goes through Entrix.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium -->
+    <section class="section plans" id="premium" aria-labelledby="plans-title">
+      <div class="wrap">
+        <h2 class="section__title" id="plans-title">Free for your first PC.<br>Premium for all of them.</h2>
+        <div class="plans__grid">
+          <div class="plan">
+            <h3>Free</h3>
+            <p class="plan__lede">Everything you need to protect one computer.</p>
+            <ul class="checks">
+              <li>Approve sign-ins in the app with Face&nbsp;ID</li>
+              <li>2-step code for when you’re offline</li>
+              <li>Encrypted recovery code</li>
+              <li>Security alerts for wrong passwords and lockouts</li>
+              <li>One computer</li>
+            </ul>
+          </div>
+          <div class="plan plan--premium">
+            <img class="plan__mark" src="assets/entrix-mark-480.webp" alt="" width="40" height="49">
+            <h3>Premium</h3>
+            <p class="plan__lede">For more computers, and less tapping.</p>
+            <ul class="checks">
+              <li>Everything in Free</li>
+              <li>Approve from the Lock Screen</li>
+              <li>Any number of computers</li>
+              <li>Lock, restart and shut down remotely</li>
+            </ul>
+            <p class="plan__note">Monthly or yearly, through the App Store. The monthly plan starts with 7&nbsp;days free. You see the price in the App Store before you pay.</p>
+          </div>
+        </div>
+        <p class="plans__foot">Approving a sign-in from inside the app is always free.</p>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap wrap--narrow">
+        <h2 class="section__title" id="faq-title">Questions.</h2>
+        <details>
+          <summary>When can I get Entrix?</summary>
+          <p>Soon. Entrix is in final testing on iPhone and Windows. Tap “Notify me at launch” or write to entrixsupport@gmail.com, and we’ll tell you the day it’s out.</p>
+        </details>
+        <details>
+          <summary>Who makes Entrix?</summary>
+          <p>An independent developer, not a big company. Questions and feedback go straight to the developer at entrixsupport@gmail.com.</p>
+        </details>
+        <details>
+          <summary>What happens if I lose my iPhone?</summary>
+          <p>Your recovery code signs you in at the PC without the phone, so keep a copy of it somewhere safe, away from your iPhone.</p>
+        </details>
+        <details>
+          <summary>What if my PC is offline?</summary>
+          <p>Type the 6-digit 2-step code from the Entrix app, or from any authenticator app you added it to. It doesn’t need the internet.</p>
+        </details>
+        <details>
+          <summary>Do I need Premium?</summary>
+          <p>No. Free protects one computer, with Face&nbsp;ID approvals, the 2-step code, the recovery code and security alerts. Premium adds Lock Screen approvals, more computers and remote lock, restart and shut down.</p>
+        </details>
+        <details>
+          <summary>Can Entrix see my Windows password?</summary>
+          <p>No. Your password never reaches the Entrix server. Neither does your Entrix PIN or your recovery code.</p>
+        </details>
+        <details>
+          <summary>Which Windows accounts does it work with?</summary>
+          <p>Local accounts and Microsoft accounts, on Windows 10 (version 2004 or later) and Windows 11, 64-bit.</p>
+        </details>
+        <details>
+          <summary>Does it work on iPad?</summary>
+          <p>Yes. The Entrix app runs on iPhone and iPad with iOS 26 or later.</p>
+        </details>
+      </div>
+    </section>
+    <!-- Closing call to action -->
+    <section class="cta-band" id="download" aria-labelledby="download-title">
+      <div class="cta-band__inner">
+        <img class="cta-band__icon" src="assets/app-icon-240.webp" alt="" width="120" height="120" decoding="async">
+        <h2 class="cta-band__title" id="download-title">Be one of the first<br>to lock it down.</h2>
+        <p class="cta-band__lede">Entrix is in final testing on iPhone and Windows. It’s free for your first computer, no card needed.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light btn--lg" href="mailto:entrixsupport@gmail.com?subject=Tell%20me%20when%20Entrix%20is%20out&amp;body=Hi%2C%20please%20let%20me%20know%20when%20Entrix%20is%20available.">Tell me when it’s out</a>
+        </div>
+        <p class="cta-band__note">Or write to <a href="mailto:entrixsupport@gmail.com">entrixsupport@gmail.com</a>. We’ll tell you the day it’s out.</p>
+        <div class="cta-band__platforms">
+          <div><svg aria-hidden="true"><use href="#i-iphone"/></svg><span><b>iPhone and iPad</b>iOS 26 or later</span></div>
+          <div><svg aria-hidden="true"><use href="#i-windows"/></svg><span><b>Windows PC</b>Windows 10 (2004) or 11, 64-bit</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="dock" data-dock aria-hidden="true">
+    <span class="dock__text"><b>Entrix</b>Free for your first PC</span>
+    <a class="btn btn--primary" href="#download" tabindex="-1">Notify me</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand wordmark" translate="no" aria-label="Entrix">
+        <img src="assets/wordmark-e.webp" alt="" width="53" height="66"><span aria-hidden="true">ntrix</span>
+      </div>
+      <nav class="footer__links" aria-label="Legal">
+        <a href="legal/legal-2026-09-29.html">Terms of Service</a>
+        <a href="legal/legal-2026-09-29.html#part-ii-privacy-policy">Privacy Policy</a>
+        <a href="mailto:entrixsupport@gmail.com">Contact</a>
+      </nav>
+      <p class="footer__legal">© 2026 Entrix. iPhone, iPad, Face&nbsp;ID, Touch&nbsp;ID and App&nbsp;Store are trademarks of Apple&nbsp;Inc. Windows is a trademark of Microsoft Corporation.</p>
+    </div>
+  </footer>
+</body>
+</html>
